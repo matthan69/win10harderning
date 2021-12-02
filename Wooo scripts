@@ -15,3 +15,5 @@ Set-ItemProperty -Path ‘HKLM:\System\CurrentControlSet\Control\Terminal Server
 reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer /v SmartScreenEnabled /t REG_SZ /d warn /f
 #firewall
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
+#limit user of blank passwords console only 
+reg ADD HKLM\SYSTEM\CurrentControlSet\Control\Lsa /v LimitBlankPasswordUse /t REG_DWORD /d 1 /f
