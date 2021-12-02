@@ -28,4 +28,5 @@ reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoAu
 
 #updates windows will reboot
 Install-Module PSWindowsUpdate
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v AUOptions /t REG_DWORD /d 3 /f
 Get-WindowsUpdate -AcceptAll -Install -AutoReboot
