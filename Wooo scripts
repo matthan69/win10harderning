@@ -9,6 +9,25 @@ secedit /export /cfg c:\secpol.cfg
 net accounts /lockoutthreshold:10
 net accounts /lockoutwindow:30
 net accounts /lockoutduration:15
+#checking user passwords pwease work uwu
+On Error Resume Next
+
+Set objNetwork = CreateObject(“Wscript.Network”)
+strComputer = objNetwork.ComputerName
+
+
+strPassword = “”
+
+
+Set colAccounts = GetObject(“WinNT://” & strComputer)
+colAccounts.Filter = Array(“user”)
+
+
+For Each objUser In colAccounts
+    objUser.ChangePassword strPassword, strPassword
+   
+    Err.Clear
+Next
 #disable remote desktop
 Set-ItemProperty -Path ‘HKLM:\System\CurrentControlSet\Control\Terminal Server’-name “fDenyTSConnections” -Value 0
 #windows smart screen 
@@ -22,6 +41,8 @@ $path ='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer'
 Set-ItemProperty $path -Name NoDriveTypeAutorun -Type DWord -Value 0xFF
 #disable autorun
 reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoAutoRun /t REG_DWORD /d 1
+#disable guest
+Disable-LocalUser -Name "Guest"
 
 
 
