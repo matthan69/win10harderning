@@ -13,3 +13,5 @@ net accounts /lockoutduration:15
 Set-ItemProperty -Path ‘HKLM:\System\CurrentControlSet\Control\Terminal Server’-name “fDenyTSConnections” -Value 0
 #windows smart screen 
 reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer /v SmartScreenEnabled /t REG_SZ /d warn /f
+#firewall
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
