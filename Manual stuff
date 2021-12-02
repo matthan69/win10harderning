@@ -1,0 +1,1 @@
+Get-ChildItem -Path C: -Include *.png, .jpg,  -recurse | Export-CSV images.CSV
