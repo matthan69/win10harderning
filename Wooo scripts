@@ -16,15 +16,15 @@ Set objNetwork = CreateObject(“Wscript.Network”)
 strComputer = objNetwork.ComputerName
 
 
-strPassword = “”
-
+oldPassword = “”
+newPassword = "Cyber1two3!?!"
 
 Set colAccounts = GetObject(“WinNT://” & strComputer)
 colAccounts.Filter = Array(“user”)
 
 
 For Each objUser In colAccounts
-    objUser.ChangePassword strPassword, strPassword
+    objUser.ChangePassword oldPassword, newPassword
    
     Err.Clear
 Next
