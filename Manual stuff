@@ -1,2 +1,0 @@
-$extensions = @("*.jpg", "*.tif", "*.png", "*.gif", "*.wav", "*.mp3", "*.ogg", "*.flac", "*.wma", "*.aac", "*.m4a", "*.flv", "*.webm", "*.ogv", "*.gif", "*.gifv", "*.avi", "*.wmv", "*.mp4", "*.mpg", "*.3gp", "*.txt", "*.csv")
-Get-ChildItem C:\* -Include $extensions -Recurse | Export-CSV images.CSV
