@@ -190,6 +190,8 @@ auditpol /set /category:* /success:enable
 	auditpol /set /category:* /failure:enable
 #dont auto connect 
 reg add HKLM\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config /v AutoConnectAllowedOEM /t REG_DWORD /d 0 /f
+#Adapter Settings
+Disable-NetAdapterBinding -Name "Ethernet0" -DisplayName "client*" , "file*" , "QoS*" , "Microsoft Network*" , "Microsoft LLDP*", "Link*" , "Link* Responder" , "Inter* (TCP/IPv6)"
 
 	
 	
