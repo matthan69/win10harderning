@@ -15,4 +15,4 @@ Start > Settings > Control Panel > Network and Internet > Network and Sharing Ce
 'WINS' tab, select 'Disable NETBIOS over TCP/IP'
 
 
-Disable-NetAdapterBinding -Name "Ethernet0" -DisplayName "client*" , "file*" , "QoS*" , "Microsoft Network*" , "Microsoft LLPD*", "Link* Mapper" , "Link* Responder" , "Internet prorocol version 6"
+
