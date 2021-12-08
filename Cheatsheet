@@ -1,2 +1,3 @@
 reg add (edits anything in the registry editor) 
-reg add (path ex:
+reg add (path) /v (what you editing) /t (value type) /d (value) /f (force)
+reg add HKLM\SYSTEM\CurrentControlSet\services\Netlogon\Parameters /v MaximumPasswordAge /t REG_DWORD /d 15 /f
