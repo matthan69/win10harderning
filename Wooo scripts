@@ -78,6 +78,24 @@ echo Disabling Services
 	sc config HomeGroupProvider start= disabled
 	sc stop HomeGroupListener
 	sc config HomeGroupListener start= disabled
+	sc stop upnphost
+	sc config upnphost start= disabled
+	sc start Wecsvc
+	sc config Wecsvc start= automatic
+	sc stop spooler
+	sc config spooler start= disabled
+	sc stop iprip
+	sc config iprip start= disabled
+	sc stop lmhosts
+	sc config lmhosts start= disabled
+	sc stop LanmanServer
+	sc config LanmanServer start= disabled
+	sc stop SessionEnv
+	sc config SessionEnv start= disabled
+	sc stop TermService
+	sc config TermService start= disabled
+	sc stop UmRdpService
+	sc config UmRdpService start= disabled
 #security options	
 rem Restrict CD ROM drive
 	reg ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AllocateCDRoms /t REG_DWORD /d 1 /f
@@ -193,11 +211,19 @@ reg add HKLM\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config /v AutoConnectA
 #Adapter Settings
 Disable-NetAdapterBinding -Name "Ethernet0" -DisplayName "client*" , "file*" , "QoS*" , "Microsoft Network*" , "Microsoft LLDP*", "Link*" , "Link* Responder" , "Inter* (TCP/IPv6)"
 
-	
-	
-	
-	
-	
+#Windows smartscreen
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\System /v ShellSmartScreenLevel /t REG_SZ /d warn /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\System /v EnableSmartScreen /t REG_DWORD /d 1 /f
+#UPnP
+reg ADD HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Services\UPnPFramework /v enabled /t REG_DWORD /d 0 /f
+#firewall rules (porbably wont work)
+Disable-NetFirewallRule -Direction Inbound -DisplayName "MS Edge", "search", "MSN Money", "MSN Sports", "MSN News", "MSN Weather", "Microsoft Photos", "Xbox"
+#uninstalls onedrive (probably just needs to be disabled)
+ps onedrive | Stop-Process -Force
+start-process "$env:windir\SysWOW64\OneDriveSetup.exe" "/uninstall"
+#Screen saver stuff
+reg add HKEY_CURRENT_USER\Control Panel\Desktop /v ScreenSaverIsSecure /t REG_DWORD /d 1 /f
+
 #change password on logon
 Import-Module ActiveDirectory
 Get-ADUser -Filter * -SearchBase "OU=Users,OU=California.OU=USA,DC=theitbros,DC=com"| Set-ADUser -ChangePasswordAtLogon:$True
