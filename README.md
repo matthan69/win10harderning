@@ -15,6 +15,7 @@ Start > Settings > Control Panel > Network and Internet > Network and Sharing Ce
 'WINS' tab, select 'Disable NETBIOS over TCP/IP'
 
 shares
+
 Open the Start menu, and type in cmd b. Do not hit enter. Right click, and choose Run as Administrator c. Now, if User account control menu pops up, click yes d. Type in net share e. This lists all the active shares from your computer, we are going to kill these
 now f. Type net share /delete INSERT NAME OF NET SHARE HERE 
 
