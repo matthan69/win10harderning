@@ -252,7 +252,13 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters" /v SignSecu
 #change password on logon
 Import-Module ActiveDirectory
 Get-ADUser -Filter * -SearchBase "OU=Users,OU=California.OU=USA,DC=theitbros,DC=com"| Set-ADUser -ChangePasswordAtLogon:$True
+#Malwarebytes
+powershell Invoke-WebRequest -OutFile MBRTKit.exe https://data-cdn.mbamupdates.com/web/mbar-1.10.3.1001.exe
+MBRTKit.exe
+PAUSE
 #updates windows will reboot
 Install-Module PSWindowsUpdate
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v AUOptions /t REG_DWORD /d 3 /f
 Get-WindowsUpdate -AcceptAll -Install -AutoReboot
+
+
