@@ -1,3 +1,8 @@
+#Copy and manually inspect hosts file
+Copy C:\Windows\System32\drivers\etc\hosts c:
+#flushdns
+ipconfig /flushdns
+
 #passwords
 reg ADD HKLM\SYSTEM\CurrentControlSet\services\Netlogon\Parameters /v MaximumPasswordAge /t REG_DWORD /d 15 /f
 net accounts /minpwlen:15
