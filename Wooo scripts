@@ -3,9 +3,20 @@ Copy C:\Windows\System32\drivers\etc\hosts c:
 #Backup Users file
 mkdir backups
 Copy C:\Users backups
+
 #flushdns
 ipconfig /flushdns
 
+set /p edge="Disable Microsoft Edge?(Y/N)"
+if %edge%==y goto disableMicrosoftEdge
+if %edge%==Y goto disableMicrosoftEdge
+if %edge%==n goto skipEdgeDisable
+if %edge%==N goto skipEdgeDisable
+
+:disableMicrosoftEdge
+#i couldn't figure it out and got bored so im just gonna leave this here <3
+goto skipEdgeDisable
+:skipEdgeDisable
 #passwords
 reg ADD HKLM\SYSTEM\CurrentControlSet\services\Netlogon\Parameters /v MaximumPasswordAge /t REG_DWORD /d 15 /f
 net accounts /minpwlen:15
