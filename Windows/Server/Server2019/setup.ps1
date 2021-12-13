@@ -9,7 +9,7 @@ Install-Module AuditPolicyDSC -Force
 Install-Module ComputerManagementDSC -Force
 Install-Module SecurityPolicyDSC -Force
 
-./WindowsServer2019.ps1
+./literallyEverythingElse.ps1
 
 Set-NetConnectionProfile -NetworkCategory Private
 Set-Item -Path WSMan:\localhost\MaxEnvelopeSizeKb -Value 2048 -Force
