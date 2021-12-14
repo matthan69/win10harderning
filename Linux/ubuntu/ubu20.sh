@@ -47,5 +47,4 @@ apt install gdm3 -y
 # unlock main user
 usermod -U $(whoami)
 
-# set user password
-usermod -p $(whoami) root
+bash old.sh
