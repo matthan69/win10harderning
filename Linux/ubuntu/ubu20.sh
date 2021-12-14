@@ -3,6 +3,8 @@
 # move to script directory
 cd "$(dirname "$0")"
 
+bash old.sh
+
 # disable sleeping
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
@@ -46,5 +48,3 @@ apt install gdm3 -y
 
 # unlock main user
 usermod -U $(whoami)
-
-bash old.sh
