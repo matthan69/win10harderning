@@ -1,5 +1,9 @@
 # win10harderning
 
+my plan atleast for the windows section:
+combining the scripts into one giant script is long and annoying so instead i want to incoude all of the difffernt scripts into one file and then create a seperate script that calls all of them and runs them. 
+
+
 can we change the name of this bih
 
 Manual Tasks 
