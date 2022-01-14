@@ -9,7 +9,7 @@ apt install git -y
 mkdir /etc/gluckgluck9000
 cd /etc/gluckgluck9000
 
-git clone https://github.com/ovh/debian-cis.git
+git clone https://github.com/AmericanAllah/debian10.git
 cd debian-cis
 
 cp debian/default /etc/default/cis-hardening
