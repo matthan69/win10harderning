@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 VERSION="1-UBUNTU";
 
 GRUB_PASSWORD="grubpassword";
-USER_PASSWORD="P0stM0rtem!";
+USER_PASSWORD="Buzz1212@";
 
 SYSLOG_BASEDIR="/etc/syslog-ng";
 LOG_FILE="log_file.txt";
