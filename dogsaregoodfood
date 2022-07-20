@@ -1,0 +1,9 @@
+net accounts / maxpwage :90
+net accounts / minpwlen :8
+net accounts / minpwage :5
+net accounts / uniquepw :3
+net accounts / lockoutthreshold :3
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v LimitBlankPasswordUse /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\Current Version\Winlogon" /v DisableCAD /t REG_DWORD /d 0 /f\
+reg add "HKLM\
+Set-NetFirewallProfile -Enabled True
